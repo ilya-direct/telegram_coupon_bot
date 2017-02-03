@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import telebot
 import logging
+import time
 from telebot import types
 from pymongo import MongoClient
 import re
@@ -173,4 +174,10 @@ def proceed_payment(message):
         bot.register_next_step_handler(message, proceed_payment)
     return
 
-bot.polling()
+
+while 1:
+    try:
+        time.sleep(5)
+        bot.polling()
+    except Exception as e:
+        logger.error(e.message)
