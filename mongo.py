@@ -18,12 +18,12 @@ db.drop_collection('coupons')
 db.coupons.insert({
     'name': 'BurgerKing',
     'code': '9894',
-    'description': '2 Вопер обеда(2 Воппера, 2 фри мал, 2 напитка) за 399'
+    'description': '2 Вопер-обеда(Воппер, фри мал, напиток) за 399'
 })
 db.coupons.insert({
     'name': 'BurgerKing',
     'code': '9903',
-    'description': 'Луковые колечки  за 69'
+    'description': 'Луковые кольца  за 69'
 })
 db.coupons.insert({
     'name': 'BurgerKing',
@@ -78,7 +78,7 @@ db.coupons.insert({
 db.coupons.insert({
     'name': 'BurgerKing',
     'number': '2',
-    'description': 'Воппер, 2 кинг фри(мал), лук. кольца, 3 соуса ЗА ПОЛЦЕНЫ',
+    'description': 'Воппер, 2 фри(мал), лук. кольца, 3 соуса ЗА ПОЛЦЕНЫ',
     'price': 25,
     'special': bool(1),
 })

@@ -65,8 +65,9 @@ def handle_vendor(message):
         bot.send_message(message.chat.id,
                          'Специальные купоны стоят 20 рублей! Оплата Qiwi на номер +79636568377. '
                          'После оплаты введите команду в формате: #<номер купона> <4 последние цифры кода операции>. \n'
+                         'Пример #2 4959. \n'
                          'Для выхода введите "!"'
-                         'Пример #2 4959', reply_markup=default_markup)
+                         , reply_markup=default_markup)
         bot.register_next_step_handler(message, proceed_payment)
         return
     cond = couponConditions.get(message.text, bool(0))
@@ -76,8 +77,7 @@ def handle_vendor(message):
 
     bot.send_message(message.chat.id, msg if msg else 'Неверная команда.  Попробуйте снова',
                      parse_mode='HTML')
-    if (handle_vendor not in bot.pre_message_subscribers_next_step):
-        bot.register_next_step_handler(message, handle_vendor)
+    bot.register_next_step_handler(message, handle_vendor)
     return
 
 
