@@ -141,8 +141,13 @@ def new_coupon(message):
 def send_message_to_client(message):
     if message.from_user.id == 169605017:
         text = message.text.split(' ', 2)
-        bot.send_message(text[1], text[2])
-        bot.send_message(message.from_user.id, u'Письмо отправлено')
+        try:
+            bot.send_message(text[1], text[2])
+            bot.send_message(message.from_user.id, u'Письмо отправлено')
+        except Exception as e:
+            logger.error(e.message)
+            bot.send_message(message.from_user.id, u'Ошибка при отправки письма')
+
         return
 
 
